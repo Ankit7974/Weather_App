@@ -8,6 +8,7 @@ let humids= document.getElementById("humids")
 let winds= document.getElementById("winds")
 let city= document.getElementById("city")
 let cityInput= document.getElementById("cityInput")
+let tablesEntries = document.getElementById("tablesEntries")
 let subBtn= document.getElementById("subBtn")
 let cols = document.getElementsByClassName("col")
 
@@ -84,6 +85,16 @@ const getWeatherInfo = (city)=>{
         <li>Wind speed: ${result.wind_speed} km/hr</li>
         <li>Sunrise: ${sriseHour}:${sriseMinutes} AM</li>
         <li>Sunset: ${sSetHour}:${sSetMinutes} PM</li>
+        `
+
+        tablesEntries.innerHTML += `
+        <tr>
+        <th scope="row" class="text-start">${city[0].toUpperCase()+city.substr(1,)}</th>
+        <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg>${result.temp}&deg; C</td>
+        <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg>${result.min_temp}&deg; C</td>
+        <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg>${result.min_temp}&deg; C</td>
+        <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg>${result.humidity}%</td>
+      </tr>
         `
 
     }).catch(e=>{
